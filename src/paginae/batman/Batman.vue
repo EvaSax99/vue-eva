@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { House } from 'lucide-vue-next'
+import { House } from "lucide-vue-next";
 
 import {
   NavigationMenu,
@@ -11,129 +11,138 @@ import {
   NavigationMenuTrigger,
   NavigationMenuViewport,
   navigationMenuTriggerStyle,
-} from '@/components/ui/navigation-menu'
+} from "@/components/ui/navigation-menu";
 
 const scrollToSection = (sectionId: string) => {
-  if (sectionId === '#') {
-    window.scrollTo({ top: 0, behavior: 'smooth'})
+  if (sectionId === "#") {
+    window.scrollTo({ top: 0, behavior: "smooth" });
     return;
   }
 
   const element = document.querySelector<HTMLElement>(sectionId);
-    if (element){
-      element.scrollIntoView({ behavior: 'smooth', block: 'start'})
-    }
-}
+  if (element) {
+    element.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+};
 
-scrollToSection('vehiculis');
+scrollToSection("vehiculis");
 </script>
 
 <template>
-    <div class="batman" >
-        <nav class="extra-nav">
-             <router-link to="/"><House class="icon-home"/></router-link>
-             <NavigationMenu>
-    <NavigationMenuList>
-      <NavigationMenuItem>
-        <a href="# " @click.prevent="scrollToSection('#')">
-            <NavigationMenuLink :class="navigationMenuTriggerStyle">
-            Portada
-        </NavigationMenuLink>
+  <div class="batman">
+    <nav class="extra-nav">
+      <router-link to="/"><House class="icon-home" /></router-link>
+      <NavigationMenu>
+        <NavigationMenuList>
+          <NavigationMenuItem>
+            <a href="# " @click.prevent="scrollToSection('#')">
+              <NavigationMenuLink :class="navigationMenuTriggerStyle">
+                Portada
+              </NavigationMenuLink>
+            </a>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <a
+              href="#vehiculis "
+              @click.prevent="scrollToSection('#vehiculis')"
+            >
+              <NavigationMenuLink :class="navigationMenuTriggerStyle">
+                Vehículos
+              </NavigationMenuLink>
+            </a>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <a href="#videre" @click.prevent="scrollToSection('#videre')">
+              <NavigationMenuLink :class="navigationMenuTriggerStyle">
+                Imágenes
+              </NavigationMenuLink>
+            </a>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
+            <a href="#contactus" @click.prevent="scrollToSection('#contactus')">
+              <NavigationMenuLink :class="navigationMenuTriggerStyle">
+                Contacto
+              </NavigationMenuLink>
+            </a>
+          </NavigationMenuItem>
+        </NavigationMenuList>
+      </NavigationMenu>
+    </nav>
 
-        </a>
-      </NavigationMenuItem>
-      <NavigationMenuItem>
-        <a href="#vehiculis " @click.prevent="scrollToSection('#vehiculis')">
-            <NavigationMenuLink :class="navigationMenuTriggerStyle">
-            Vehículos
-        </NavigationMenuLink>
-
-        </a>
-      </NavigationMenuItem>
-      <NavigationMenuItem>
-        <a href="#videre" @click.prevent="scrollToSection('#videre')">
-            <NavigationMenuLink :class="navigationMenuTriggerStyle">
-            Imágenes
-        </NavigationMenuLink>
-
-        </a>
-      </NavigationMenuItem>
-      <NavigationMenuItem>
-        <a href="#contactus" @click.prevent="scrollToSection('#contactus')">
-            <NavigationMenuLink :class="navigationMenuTriggerStyle">
-            Contacto
-        </NavigationMenuLink>
-
-        </a>
-      </NavigationMenuItem>
-    </NavigationMenuList>
-  </NavigationMenu>
-
-        </nav>
-       
-
-        <header class="titulus">
-        <h1>
-            Batman
-        </h1>
-        <div id="titulus-batman" class="titulus-img"></div>
-        <p>Él puede tomar la decisión que nadie más puede, la decisión correcta</p>
+    <header class="titulus">
+      <h1>Batman</h1>
+      <div id="titulus-batman" class="titulus-img"></div>
+      <p>
+        Él puede tomar la decisión que nadie más puede, la decisión correcta
+      </p>
     </header>
 
     <section id="vehiculis">
-  <div class="vehiculis-arca">
-    <div class="item unus">
-        <div class="notitia">
-          <h2>Avión</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vehicula vulputate elit eget fermentum. Ut laoreet ante lacus. Quisque ut tincidunt metus. Curabitur congue, arcu nec tempus sodales, neque sem ultrices mauris, eu tincidunt nibh nibh eu massa. Aenean rhoncus quis nibh ac facilisis.</p>
-          <small>Fabricado en 2005</small>
+      <div class="vehiculis-arca">
+        <div class="item unus">
+          <div class="notitia">
+            <h2>Avión</h2>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+              vehicula vulputate elit eget fermentum. Ut laoreet ante lacus.
+              Quisque ut tincidunt metus. Curabitur congue, arcu nec tempus
+              sodales, neque sem ultrices mauris, eu tincidunt nibh nibh eu
+              massa. Aenean rhoncus quis nibh ac facilisis.
+            </p>
+            <small>Fabricado en 2005</small>
+          </div>
+          <img src="/imagines/batman/avion.jpg" />
         </div>
-        <img src="/imagines/batman/avion.jpg"/>
+
+        <div class="item duo">
+          <div class="notitia">
+            <h2>Moto</h2>
+            <p>
+              Nulla aliquip cupidatat voluptate veniam nostrud aliquip sit enim
+              officia. Sit eu pariatur officia qui dolor adipisicing cupidatat.
+              Sit consectetur et eu ut esse laboris nulla.
+            </p>
+            <small>Fabricado en 2006</small>
+          </div>
+          <img src="/imagines/batman/moto.jpg" />
+        </div>
+
+        <div class="item tribus">
+          <div class="notitia">
+            <h2>Coche</h2>
+            <p>
+              Irure adipisicing est minim eu ad dolor. Eu ea commodo pariatur ut
+              occaecat in cupidatat reprehenderit ut laborum duis. Sunt minim ex
+              fugiat reprehenderit. Lorem consectetur reprehenderit commodo non
+            </p>
+            <small>Fabricado en 2007</small>
+          </div>
+          <img src="/imagines/batman/car.jpg" />
+        </div>
       </div>
 
-      <div class="item duo">
-        <div class="notitia">
-          <h2>Moto</h2>
-          <p>Nulla aliquip cupidatat voluptate veniam nostrud aliquip sit enim officia. Sit eu pariatur officia qui dolor adipisicing cupidatat. Sit consectetur et eu ut esse laboris nulla.</p>
-          <small>Fabricado en 2006</small>
-        </div>
-        <img src="/imagines/batman/moto.jpg"/>
+      <div class="vehiculis-titulus">
+        <h1>Vehículos de Batman</h1>
       </div>
-      
-      <div class="item tribus">
-        <div class="notitia">
-          <h2>Coche</h2>
-          <p>Irure adipisicing est minim eu ad dolor. Eu ea commodo pariatur ut occaecat in cupidatat reprehenderit ut laborum duis. Sunt minim ex fugiat reprehenderit. Lorem consectetur reprehenderit commodo non</p>
-          <small>Fabricado en 2007</small>
-        </div>
-        <img src="/imagines/batman/car.jpg"/>
-      </div>
-    </div>
-
-    <div class="vehiculis-titulus">
-      <h1>Vehículos de Batman</h1>
-    </div>
- </section>
-
-    </div>
-    
-    
-
-    
+    </section>
+  </div>
 </template>
 
 <style scoped>
+.batman {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 .icon-home {
-    color:slateblue;
-    width: 3rem;
-    height: 3rem;
+  height: 3rem;
+  width: 3rem;
+  color: slateblue;
 }
 
 .icon-home:hover {
-    color: white;
-    background-color: slateblue;
+  color: white;
+  background-color: slateblue;
 }
-
 
 .extra-nav {
   background-color: white;
@@ -154,15 +163,14 @@ scrollToSection('vehiculis');
     left: 0;
   }
 }
-.batman {
-    font-family: 'batman';
-}
+
+
+
 .titulus-img {
   background-size: 100% 100%;
   background-position: center center;
   background-image: url("../imagines/batman/batman.jpg");
   min-height: 100vh;
-  font-family: batman;
 }
 
 .titulus-img:hover {
@@ -188,20 +196,28 @@ scrollToSection('vehiculis');
   font-size: 2rem;
   color: white;
   pointer-events:none;
-  display: none;
   font-family: batman;
+  display: none;
 }
 
 @media (min-width: 768px) {
-    .titulus > p {
-        display: block;
-    }
+  .titulus > p {
+    display: block;
+  }
 }
 
 #vehiculis {
   max-width: 510px;
   margin: 0 auto;
   padding: 4rem 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.vehiculis-arca {
+  order: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .vehiculis-titulus {
@@ -209,15 +225,27 @@ scrollToSection('vehiculis');
   font-size: 2rem;
   background-color: rgba(0, 0, 0, 0.7);
   color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center
 }
 
 .item {
   padding: 1.5rem 0;
-  height: 500px;
+  height: 540px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.item > img {
+  width: 450px;
 }
 
 .unus {
   background-color: rgba(220, 220, 220, 0.2) ; 
+  order: 2;
 }
 
 .duo {
@@ -226,6 +254,14 @@ scrollToSection('vehiculis');
 
 .tribus {
   background-color: rgba(220, 220, 220, 0.8);
+  order: 3;
+}
+
+.notitia {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
  
 .notitia > small {
@@ -240,6 +276,47 @@ scrollToSection('vehiculis');
  padding-bottom: 1rem;
 } 
 
+@media (min-width: 640px) {
+  #vehiculis {
+    max-width: 576px;
+  }
+}
 
+@media (min-width: 768px) {
+  #vehiculis {
+    max-width: 900px;
+  }
 
+  .item {
+    flex-direction: row;
+    height: 320px
+  }
+
+  .notitia {
+    width: 40%;
+  }
+
+  .unus > img {
+    order: -1;
+  }
+}
+
+@media (min-width: 1024px) {
+  #vehiculis {
+    max-width: 1280px;
+  }
+
+  .item {
+    flex-direction: column;
+    height: 560px
+  }
+
+  .vehiculis-arca {
+    flex-direction: row;
+  }
+
+  .notitia {
+    width: 90%;
+  }
+}
 </style>
