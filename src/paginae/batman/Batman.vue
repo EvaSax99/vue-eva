@@ -1,14 +1,7 @@
 <script lang="ts" setup>
 import { House } from "lucide-vue-next";
-import { Card, CardContent } from "@/components/ui/card";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
-import Autoplay from 'embla-carousel-autoplay'
+import Carrusimaginum from "@/components/ui/Carrusimaginum.vue";
+
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -17,21 +10,10 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 
-const scrollToSection = (sectionId: string) => {
-  if (sectionId === "#") {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-    return;
-  }
-
-  const element = document.querySelector<HTMLElement>(sectionId);
-  if (element) {
-    element.scrollIntoView({ behavior: "smooth", block: "start" });
-  }
-};
-
-scrollToSection("vehiculis");
-
+import scrollToSection from "@/utils/scrollToSection";
 const photos = ["justice", "arkham", "superman", "varios", "villana", "villano", "grupo", "robin", "anne", "joker", "resplandor", "cat", "gafas", "league", "fondoVerde"];
+
+
 </script>
 
 <template>
@@ -155,35 +137,15 @@ const photos = ["justice", "arkham", "superman", "varios", "villana", "villano",
       id="videre"
       class="w-full flex justify-center items-center min-h-[60vh] lg:min-h-[95vh] bg-gray-900"
     >
-      <Carousel class="w-full max-w-md md:max-w-2xl lg:max-h-4xl bg-gray-900"
-      :opts="{
-        loop: true,
-        dragFree: true,
-      }"
-       :plugins="[Autoplay({
-      delay: 2000,
-    })]"
-      >
-        <CarouselContent>
-          <CarouselItem v-for="i in photos.length" :key="i">
-            <div class="p-1">
-              <Card class=" bg-gray-900 border-none">
-                <CardContent
-                  class="flex aspect-6/4 items-center justify-center p-6"
-                >
-                  <img 
-                  :src="`/imagines/batman/${photos[i - 1]}.jpg`"
-                  :alt="`imagen ${i - 1} de Batman`"
-                  class="w-full h-full object-cover"
-                  >
-                </CardContent>
-              </Card>
-            </div>
-          </CarouselItem>
-        </CarouselContent>
-        <CarouselPrevious class="hidden md:flex justify-center item-center  bg-gray-900 text-white" />
-        <CarouselNext class="hidden md:flex justify-center item-center  bg-gray-900 text-white" />
-      </Carousel>
+    <Carrusimaginum
+    :photos="photos"
+    basePath="/imagines/batman"
+    :autoPlayDelay="1000"
+    />
+     </section>
+     <section id="contactus" class="w-full flex justify-center items-center min-h-[60vh] lg:min-h-[95vh] bg-gray-900">
+      <h1 class="text-4xl text-white">Contacto</h1>
+      
     </section>
   </div>
 </template>
