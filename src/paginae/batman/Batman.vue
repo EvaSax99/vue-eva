@@ -1,15 +1,19 @@
 <script lang="ts" setup>
 import { House } from "lucide-vue-next";
-
+import { Card, CardContent } from "@/components/ui/card";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
+import Autoplay from 'embla-carousel-autoplay'
 import {
   NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuIndicator,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
-  NavigationMenuTrigger,
-  NavigationMenuViewport,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 
@@ -26,17 +30,24 @@ const scrollToSection = (sectionId: string) => {
 };
 
 scrollToSection("vehiculis");
+
+const photos = ["justice", "arkham", "superman", "varios", "villana", "villano", "grupo", "robin", "anne", "joker", "resplandor", "cat", "gafas", "league", "fondoVerde"];
 </script>
 
 <template>
   <div class="batman">
-    <nav class="extra-nav">
+    <nav class="extra-nav flex flex-col sm:flex-row justify-between px-3">
       <router-link to="/"><House class="icon-home" /></router-link>
       <NavigationMenu>
-        <NavigationMenuList>
+        <NavigationMenuList class="flex flex-col sm:flex-row">
           <NavigationMenuItem>
             <a href="# " @click.prevent="scrollToSection('#')">
-              <NavigationMenuLink :class="navigationMenuTriggerStyle">
+              <NavigationMenuLink
+                :class="[
+                  navigationMenuTriggerStyle(),
+                  'text-md hover:bg-[#6A5ACD] hover:text-white transition-all',
+                ]"
+              >
                 Portada
               </NavigationMenuLink>
             </a>
@@ -46,21 +57,36 @@ scrollToSection("vehiculis");
               href="#vehiculis "
               @click.prevent="scrollToSection('#vehiculis')"
             >
-              <NavigationMenuLink :class="navigationMenuTriggerStyle">
+              <NavigationMenuLink
+                :class="[
+                  navigationMenuTriggerStyle(),
+                  'text-md hover:bg-[#6A5ACD] hover:text-white transition-all',
+                ]"
+              >
                 Vehículos
               </NavigationMenuLink>
             </a>
           </NavigationMenuItem>
           <NavigationMenuItem>
             <a href="#videre" @click.prevent="scrollToSection('#videre')">
-              <NavigationMenuLink :class="navigationMenuTriggerStyle">
+              <NavigationMenuLink
+                :class="[
+                  navigationMenuTriggerStyle(),
+                  'text-md hover:bg-[#6A5ACD] hover:text-white transition-all',
+                ]"
+              >
                 Imágenes
               </NavigationMenuLink>
             </a>
           </NavigationMenuItem>
           <NavigationMenuItem>
             <a href="#contactus" @click.prevent="scrollToSection('#contactus')">
-              <NavigationMenuLink :class="navigationMenuTriggerStyle">
+              <NavigationMenuLink
+                :class="[
+                  navigationMenuTriggerStyle(),
+                  'text-md hover:bg-[#6A5ACD] hover:text-white transition-all',
+                ]"
+              >
                 Contacto
               </NavigationMenuLink>
             </a>
@@ -125,6 +151,40 @@ scrollToSection("vehiculis");
         <h1>Vehículos de Batman</h1>
       </div>
     </section>
+    <section
+      id="videre"
+      class="w-full flex justify-center items-center min-h-[60vh] lg:min-h-[95vh] bg-gray-900"
+    >
+      <Carousel class="w-full max-w-md md:max-w-2xl lg:max-h-4xl bg-gray-900"
+      :opts="{
+        loop: true,
+        dragFree: true,
+      }"
+       :plugins="[Autoplay({
+      delay: 2000,
+    })]"
+      >
+        <CarouselContent>
+          <CarouselItem v-for="i in photos.length" :key="i">
+            <div class="p-1">
+              <Card class=" bg-gray-900 border-none">
+                <CardContent
+                  class="flex aspect-6/4 items-center justify-center p-6"
+                >
+                  <img 
+                  :src="`/imagines/batman/${photos[i - 1]}.jpg`"
+                  :alt="`imagen ${i - 1} de Batman`"
+                  class="w-full h-full object-cover"
+                  >
+                </CardContent>
+              </Card>
+            </div>
+          </CarouselItem>
+        </CarouselContent>
+        <CarouselPrevious class="hidden md:flex justify-center item-center  bg-gray-900 text-white" />
+        <CarouselNext class="hidden md:flex justify-center item-center  bg-gray-900 text-white" />
+      </Carousel>
+    </section>
   </div>
 </template>
 
@@ -155,7 +215,7 @@ scrollToSection("vehiculis");
   z-index: 1;
 }
 
-@media (min-width: 640px){
+@media (min-width: 640px) {
   .extra-nav {
     width: 100%;
     border-radius: 0;
@@ -163,8 +223,6 @@ scrollToSection("vehiculis");
     left: 0;
   }
 }
-
-
 
 .titulus-img {
   background-size: 100% 100%;
@@ -182,9 +240,9 @@ scrollToSection("vehiculis");
   top: 63%;
   width: 100%;
   text-align: center;
-  font-size: 5rem; 
+  font-size: 5rem;
   color: white;
-  pointer-events:none; 
+  pointer-events: none;
   font-family: batman;
 }
 
@@ -195,7 +253,7 @@ scrollToSection("vehiculis");
   text-align: center;
   font-size: 2rem;
   color: white;
-  pointer-events:none;
+  pointer-events: none;
   font-family: batman;
   display: none;
 }
@@ -227,7 +285,7 @@ scrollToSection("vehiculis");
   color: white;
   display: flex;
   align-items: center;
-  justify-content: center
+  justify-content: center;
 }
 
 .item {
@@ -244,7 +302,7 @@ scrollToSection("vehiculis");
 }
 
 .unus {
-  background-color: rgba(220, 220, 220, 0.2) ; 
+  background-color: rgba(220, 220, 220, 0.2);
   order: 2;
 }
 
@@ -263,18 +321,18 @@ scrollToSection("vehiculis");
   flex-direction: column;
   align-items: center;
 }
- 
+
 .notitia > small {
   font-weight: bold;
   padding: 1rem;
 }
- 
+
 .notitia > h2 {
- font-size: 1.7rem; 
- font-weight: 600;
- color: rgba(0, 0, 0, 0.7);
- padding-bottom: 1rem;
-} 
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: rgba(0, 0, 0, 0.7);
+  padding-bottom: 1rem;
+}
 
 @media (min-width: 640px) {
   #vehiculis {
@@ -289,7 +347,7 @@ scrollToSection("vehiculis");
 
   .item {
     flex-direction: row;
-    height: 320px
+    height: 320px;
   }
 
   .notitia {
@@ -308,7 +366,7 @@ scrollToSection("vehiculis");
 
   .item {
     flex-direction: column;
-    height: 560px
+    height: 560px;
   }
 
   .vehiculis-arca {
