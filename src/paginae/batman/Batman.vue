@@ -1,7 +1,9 @@
 <script lang="ts" setup>
-import { House } from "lucide-vue-next";
+import { onMounted, onUnmounted, ref } from "vue";
+import { House, Menu } from "lucide-vue-next";
 import Carrusimaginum from "@/components/ui/Carrusimaginum.vue";
-
+import { Bold } from 'lucide-vue-next'
+import { Toggle } from '@/components/ui/toggle'  
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -12,13 +14,62 @@ import {
 
 import scrollToSection from "@/utils/scrollToSection";
 const photos = ["justice", "arkham", "superman", "varios", "villana", "villano", "grupo", "robin", "anne", "joker", "resplandor", "cat", "gafas", "league", "fondoVerde"];
+interface Coordinatas {
+  x: number
+  y: number
+}
+
+const mousePositione = ref<Coordinatas>({x: 0, y: 0});
+
+const videreMenu = ref<boolean>(true)
+
+
+const handleResize = () => {
+  if(window.innerWidth <= 640) {
+    videreMenu.value = false 
+  } else {
+    videreMenu.value = true
+  }
+}
+
+  onMounted(() => {
+    handleResize()
+    window.addEventListener('resize', handleResize)
+  })
+  onUnmounted(() => {
+    window.removeEventListener('resize', handleResize)
+  })
+
+const cumMouseMove = (event: MouseEvent) => {
+  const rect = (event.target as HTMLElement).getBoundingClientRect();
+  const centerX = rect.width / 2;
+  const centerY = rect.height / 2;
+  const mouseX = event.clientX - rect.left - centerX;
+  const mouseY = event.clientY - rect.top - centerY;
+  mousePositione.value = {
+     x: (centerX - mouseX) * 0.1,
+      y: (centerY - mouseY) * 0.1,
+    };
+
+} 
+
+const cumMouseLeave = () => {
+  mousePositione.value = { x: 0, y: 0 }
+}
 
 
 </script>
 
 <template>
   <div class="batman">
-    <nav class="extra-nav flex flex-col sm:flex-row justify-between px-3">
+    <Toggle 
+    class="fixed top-2 right-4 bg-slate-500"
+    @click="videreMenu =!videreMenu"
+    >
+    <Menu />
+    
+  </Toggle>
+    <nav v-if="videreMenu" class="extra-nav flex flex-col sm:flex-row justify-between px-3">
       <router-link to="/"><House class="icon-home" /></router-link>
       <NavigationMenu>
         <NavigationMenuList class="flex flex-col sm:flex-row">
@@ -79,7 +130,17 @@ const photos = ["justice", "arkham", "superman", "varios", "villana", "villano",
 
     <header class="titulus">
       <h1>Batman</h1>
-      <div id="titulus-batman" class="titulus-img"></div>
+      <div 
+      id="titulus-batman" 
+      class="titulus-img"
+      @mousemove="cumMouseMove"
+      @mouseleave="cumMouseLeave"
+      :style="{
+        backgroundPositionX: `calc(50% + ${mousePositione.x}px)`,
+        backgroundPositionY: `calc(50% + ${mousePositione.y}px)`,
+        transition: 'background-position 0.1s ease-out',
+      }"
+      ></div>
       <p>
         Él puede tomar la decisión que nadie más puede, la decisión correcta
       </p>
@@ -188,6 +249,7 @@ const photos = ["justice", "arkham", "superman", "varios", "villana", "villano",
 
 .titulus-img {
   background-size: 100% 100%;
+  aspect-ratio: 8/7;
   background-position: center center;
   background-image: url("../imagines/batman/batman.jpg");
   min-height: 100vh;
@@ -199,7 +261,7 @@ const photos = ["justice", "arkham", "superman", "varios", "villana", "villano",
 
 .titulus > h1 {
   position: absolute;
-  top: 63%;
+  top: calc(100vw * 0.5);
   width: 100%;
   text-align: center;
   font-size: 5rem;
@@ -210,7 +272,7 @@ const photos = ["justice", "arkham", "superman", "varios", "villana", "villano",
 
 .titulus > p {
   position: absolute;
-  top: 36%;
+  top: calc(100vw * 0.25);
   width: 100%;
   text-align: center;
   font-size: 2rem;
