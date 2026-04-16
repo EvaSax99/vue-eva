@@ -1,132 +1,46 @@
 <script lang="ts" setup>
-import { onMounted, onUnmounted, ref } from "vue";
-import { House, Menu } from "lucide-vue-next";
 import Carrusimaginum from "@/components/ui/Carrusimaginum.vue";
 import { Bold } from 'lucide-vue-next'
-import { Toggle } from '@/components/ui/toggle'  
-import {
-  NavigationMenu,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu";
-
 import scrollToSection from "@/utils/scrollToSection";
+import { useMouseMotio } from "@/composables/useMouseMotio";
+import NavigatorPrimarius from "@/components/NavigatorPrimarius.vue";
 const photos = ["justice", "arkham", "superman", "varios", "villana", "villano", "grupo", "robin", "anne", "joker", "resplandor", "cat", "gafas", "league", "fondoVerde"];
-interface Coordinatas {
-  x: number
-  y: number
-}
 
-const mousePositione = ref<Coordinatas>({x: 0, y: 0});
+  const {mousePositione, cumMouseLeave, cumMouseMove} = useMouseMotio();
 
-const videreMenu = ref<boolean>(true)
+  const menuItems = [
+    {
+      label:'Portada',
+      href: '#',
+      onclick: ()=> scrollToSection('#')
+    },
+    {
+      label:'Vehíchulos',
+      href: 'vehiculis',
+      onclick: ()=> scrollToSection('#')
+    },
+    {
+      label:'Imágenes',
+      href: 'videre',
+      onclick: ()=> scrollToSection('#')
+    },
+    {
+      label:'Contacto',
+      href: 'contactus',
+      onclick: ()=> scrollToSection('#')
+    },
+    
+  ]
 
 
-const handleResize = () => {
-  if(window.innerWidth <= 640) {
-    videreMenu.value = false 
-  } else {
-    videreMenu.value = true
-  }
-}
-
-  onMounted(() => {
-    handleResize()
-    window.addEventListener('resize', handleResize)
-  })
-  onUnmounted(() => {
-    window.removeEventListener('resize', handleResize)
-  })
-
-const cumMouseMove = (event: MouseEvent) => {
-  const rect = (event.target as HTMLElement).getBoundingClientRect();
-  const centerX = rect.width / 2;
-  const centerY = rect.height / 2;
-  const mouseX = event.clientX - rect.left - centerX;
-  const mouseY = event.clientY - rect.top - centerY;
-  mousePositione.value = {
-     x: (centerX - mouseX) * 0.1,
-      y: (centerY - mouseY) * 0.1,
-    };
-
-} 
-
-const cumMouseLeave = () => {
-  mousePositione.value = { x: 0, y: 0 }
-}
 
 
 </script>
 
 <template>
   <div class="batman">
-    <Toggle 
-    class="fixed top-2 right-4 bg-slate-500"
-    @click="videreMenu =!videreMenu"
-    >
-    <Menu />
+    <NavigatorPrimarius  :items ="menuItems"  homeRoute="/"/>
     
-  </Toggle>
-    <nav v-if="videreMenu" class="extra-nav flex flex-col sm:flex-row justify-between px-3">
-      <router-link to="/"><House class="icon-home" /></router-link>
-      <NavigationMenu>
-        <NavigationMenuList class="flex flex-col sm:flex-row">
-          <NavigationMenuItem>
-            <a href="# " @click.prevent="scrollToSection('#')">
-              <NavigationMenuLink
-                :class="[
-                  navigationMenuTriggerStyle(),
-                  'text-md hover:bg-[#6A5ACD] hover:text-white transition-all',
-                ]"
-              >
-                Portada
-              </NavigationMenuLink>
-            </a>
-          </NavigationMenuItem>
-          <NavigationMenuItem>
-            <a
-              href="#vehiculis "
-              @click.prevent="scrollToSection('#vehiculis')"
-            >
-              <NavigationMenuLink
-                :class="[
-                  navigationMenuTriggerStyle(),
-                  'text-md hover:bg-[#6A5ACD] hover:text-white transition-all',
-                ]"
-              >
-                Vehículos
-              </NavigationMenuLink>
-            </a>
-          </NavigationMenuItem>
-          <NavigationMenuItem>
-            <a href="#videre" @click.prevent="scrollToSection('#videre')">
-              <NavigationMenuLink
-                :class="[
-                  navigationMenuTriggerStyle(),
-                  'text-md hover:bg-[#6A5ACD] hover:text-white transition-all',
-                ]"
-              >
-                Imágenes
-              </NavigationMenuLink>
-            </a>
-          </NavigationMenuItem>
-          <NavigationMenuItem>
-            <a href="#contactus" @click.prevent="scrollToSection('#contactus')">
-              <NavigationMenuLink
-                :class="[
-                  navigationMenuTriggerStyle(),
-                  'text-md hover:bg-[#6A5ACD] hover:text-white transition-all',
-                ]"
-              >
-                Contacto
-              </NavigationMenuLink>
-            </a>
-          </NavigationMenuItem>
-        </NavigationMenuList>
-      </NavigationMenu>
-    </nav>
 
     <header class="titulus">
       <h1>Batman</h1>
@@ -222,30 +136,7 @@ const cumMouseLeave = () => {
   color: slateblue;
 }
 
-.icon-home:hover {
-  color: white;
-  background-color: slateblue;
-}
 
-.extra-nav {
-  background-color: white;
-  opacity: 0.7;
-  box-shadow: rgba(0, 0, 0, 0.7);
-  position: fixed;
-  top: 0;
-  width: 11rem;
-  border-radius: 0 0 1rem 0;
-  z-index: 1;
-}
-
-@media (min-width: 640px) {
-  .extra-nav {
-    width: 100%;
-    border-radius: 0;
-    opacity: 1;
-    left: 0;
-  }
-}
 
 .titulus-img {
   background-size: 100% 100%;
