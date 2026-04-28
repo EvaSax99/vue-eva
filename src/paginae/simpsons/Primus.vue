@@ -3,6 +3,7 @@ import { RouterLink } from 'vue-router';
 import {Button} from '@/components/ui/button';
 import LogoSimpsons from '@/components/LogoSimpsons.vue';
 
+
 </script>
 
 <template>
@@ -14,12 +15,12 @@ import LogoSimpsons from '@/components/LogoSimpsons.vue';
 	<div>
     	<strong>This is an unofficial app (even though it looks so cool!)</strong>
 	</div>
-	<div className="mt-8 flex gap-5">
+	<div class="mt-8 flex gap-5">
 		<Button variant="simpsonsfont" size="elongatis">
       		<RouterLink to="/">Exit</RouterLink>
     	</Button>
     	<Button variant="simpsonsfont" size="elongatis">
-      		<RouterLink to="">Enter</RouterLink>
+      		<RouterLink to="/simpsons/about">Enter</RouterLink>
     	</Button>
 	</div>
 	<div class="flex gap-12 mt-8">

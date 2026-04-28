@@ -20,8 +20,8 @@ export const buttonVariants = cva(
           "hover:bg-accent hover:text-accent-foreground dark:hover:bg-accent/50",
         link: "text-primary underline-offset-4 hover:underline",
         tertiarius:
-          "bg-white text-base border-black hover:bg-[#ee3123] focus: bg-[#ee3123] rounded-none",
-         simpsonsfont: "bg-white text-base border-black hover:bg-[#ee3123] focus: bg-[#ee3123] rounded-none",
+          "bg-white text-base border-black hover:bg-[#ee3123] focus:bg-[#ee3123] rounded-none",
+         simpsonsfont: "bg-white text-base  border border-black hover:bg-[#ee3123] focus:bg-[#ee3123] rounded-none",
       },
       size: {
         "default": "h-9 px-4 py-2 has-[>svg]:px-3",

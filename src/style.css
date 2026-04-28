@@ -127,4 +127,4 @@ body {
     @apply bg-background text-foreground;
   }
 }
-
+@import "tailwindcss";
