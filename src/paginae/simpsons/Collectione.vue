@@ -3,11 +3,13 @@
 </script>
 
 <template>
-    <div class="flex flex-col items-center justify-center w-full max-w-[1400px] ">
-        <h1 class="font-bold text-xl mb-0.5">
+    <div class="flex flex-col items-center justify-center gap-8 w-full max-w-[1400px] my-8 ">
+        <h1 class="font-bold text-5xl mb-5">
             Simpsons Quoter App
         </h1>
-        <p>Click on the quoter of your favorite Simpson character!</p>
+        <p class="mb-5 text-center">
+            Click on the quoter of your favorite Simpson character!
+        </p>
 
     </div>
 </template>

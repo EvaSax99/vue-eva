@@ -36,11 +36,11 @@ import { RouterLink } from "vue-router";
 
     <footer class="bg-[#ffde00] text-center items-center justify-center border border-black ">
 
-      <div>
+      <div class="mt-5">
         <strong>All Rights Reserved</strong> - Oh Lord Matt Groening - 1989-2023
       </div>
 
-      <small> This app was done by Eva Clement </small>
+      <small class="mb-5"> This app was done by Eva Clement </small>
     </footer>
   </div>
 </template>
