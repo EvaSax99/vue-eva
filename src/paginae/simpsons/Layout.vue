@@ -21,7 +21,7 @@ import { RouterLink } from "vue-router";
           <Button
             variant="tertiarius"
             side="elongatis"
-            class="bg-[#ee3133] hover:bg-[#ffde00] hover:border border-black focus:bg-[#ffde00]"
+            class="bg-[#ee3133] border border-black hover:bg-[#ffde00]  focus:bg-[#ffde00]"
           >
             <RouterLink to="/simpsons"> Exit </RouterLink>
           </Button>
