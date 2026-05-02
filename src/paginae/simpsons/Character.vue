@@ -1,9 +1,26 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, watch } from "vue";
+import { computed } from "vue";
+
 import { useRoute, useRouter} from "vue-router";
 import { Characters, type Character } from "./data";
-
-
+import { CheckIcon, ChevronsUpDownIcon } from 'lucide-vue-next'
+import { Button } from '@/components/ui/button'
+import { cn } from '@/lib/utils'
+import {
+  Command,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+} from '@/components/ui/command'
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from '@/components/ui/popover'
+import SelectLabel from "@/components/ui/select/SelectLabel.vue";
 
 const route = useRoute()
 const router = useRouter()
@@ -12,13 +29,88 @@ const character = ref<Character | undefined>(
     Characters.find( char => char.id === Number(route.params.id))
 )
 
+const simpsons = Characters.map( char => ({
+  value: char.id.toString(),
+  label: char.nomen
+
+}))
+
+const open = ref(false)
+const value = ref(route.params.id?.toString() || "")
+
+watch(() => route.params.id, (newId) => {
+  character.value = Characters.find( char => char.id === Number(newId))
+  value.value = newId?.toString() || ''
+})
+
+const selectCharacter = (characterId: string) => {
+  value.value = characterId 
+  open.value = false
+  router.push(`/simpsons/gallery/${characterId}`)
+}
+
+const selectedLabel = computed (() => {
+  if (!value.value) return 'Selecciona un personaje...'
+  return simpsons.find(simpson => simpson.value === value.value)?.label || 'Selecciona un personaje...'
+  })
+
+
 </script>
 
 <template>
-  <div 
+  <div
   v-if="character"
-  class="flex flex-col lg:flex-row lg:justify-between max-w-[1400px] md: items-center w-full md: mx-auto my-8 gap-8 px-5 md:px-20"
+  class="w-full md: mx-auto my-8 px-5 md:px-20"
   >
+    <div class="mb-8">
+      <label class="block text-lg font-semibold mb-2 text-gray-800">Buscar personaje:</label>
+  <Popover v-model:open="open">
+    <PopoverTrigger as-child>
+      <Button
+        variant="outline"
+        role="combobox"
+        :aria-expanded="open"
+        class="w-[200px] justify-between bg-[rgb(239,68,68)] hover:bg-[#ffde00] border-2 border-black font-semibold text-white"
+      >
+        {{ selectedLabel }}
+        <ChevronsUpDownIcon class="ml-2 h-4 w-4 shrink-0 opacity-50" />
+      </Button>
+    </PopoverTrigger>
+    <PopoverContent class="w-[200px] p-0 border-2 border-black bg-white">
+      <Command>
+        <CommandInput class="border-b-2 border-gray-200" placeholder="Buscar..." />
+        <CommandList>
+          <CommandEmpty>No se encontró</CommandEmpty>
+          <CommandGroup>
+            <CommandItem
+              v-for="simpson in simpsons"
+              :key="simpson.value"
+              :value="simpson.value"
+              @select="selectCharacter(simpson.value)"
+              class="hover:bg-black hover:text-white cursor-pointer font-medium transition-colors"
+            >
+              {{ simpson.label }}
+              <CheckIcon
+                :class="cn(
+                  'ml-auto',
+                  value === simpson.value ? 'opacity-100' : 'opacity-0',
+                )"
+              />
+            </CommandItem>
+          </CommandGroup>
+        </CommandList>
+      </Command>
+    </PopoverContent>
+  </Popover>
+
+
+ </div> 
+
+
+  <div 
+  class="flex flex-col lg:flex-row lg:justify-between md:items-center gap-8 "
+  >
+   
   <div>
     <h1 class="titulus-quote">
         {{ character.nomen }}
@@ -43,6 +135,9 @@ const character = ref<Character | undefined>(
      :src="`/imagines/simpsons/${character.imago}`" alt="" />
   </figure>
   </div>
+
+  </div>
+ 
 </template>
 
 <style scoped>
