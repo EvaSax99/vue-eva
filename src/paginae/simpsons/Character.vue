@@ -20,7 +20,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@/components/ui/popover'
-import SelectLabel from "@/components/ui/select/SelectLabel.vue";
+// import SelectLabel from "@/components/ui/select/SelectLabel.vue";
 
 const route = useRoute()
 const router = useRouter()
