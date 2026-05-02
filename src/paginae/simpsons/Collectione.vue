@@ -2,10 +2,11 @@
 import { Card, CardContent } from "@/components/ui/card/";
 import { computed, ref } from "vue";
 import { Characters } from "./data";
+import { useRouter } from "vue-router";
 
 
 // const listaSimpson = ref(Characters.slice(0, 6));
-
+const router = useRouter()
 const inPagina = 6
 const nuncPagina = ref(1)
 const totalPaginae = (Math.ceil(Characters.length / inPagina))
@@ -28,7 +29,7 @@ const paginaNumeri: number[] =[...Array(totalPaginae)].map((_, i) => i + 1)
 
 <template>
   <div
-    class="flex flex-col items-center justify-center gap-8 w-full max-w-[1400px] my-8 mb-20"
+    class="flex flex-col items-center justify-center gap-8 w-full max-w-[1400px] my-8 mx-auto"
   >
     <div class="text-center">
       <h1 class="font-bold text-xl lg:text-5xl mb-5">Simpsons Quote App</h1>
@@ -40,7 +41,10 @@ const paginaNumeri: number[] =[...Array(totalPaginae)].map((_, i) => i + 1)
         :key="character.id"
         class="cursor-pointer w-[220px] h-[240px] items-center text-center hover:bg-[#ee3133] hover:text-white transition-colors"
       >
-        <CardContent class="flex flex-col items-center gap-1 w-full px-0">
+        <CardContent
+         class="flex flex-col items-center gap-1 w-full px-0"
+        @click = "router.push(`/simpsons/gallery/${character.id}`)"
+        >
           <img
             :src="`/imagines/simpsons/${character.imago}`"
             :alt="character.nomen"

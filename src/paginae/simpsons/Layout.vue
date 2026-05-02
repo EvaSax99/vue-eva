@@ -11,7 +11,7 @@ import { RouterLink } from "vue-router";
         class="flex flex-col md:flex-row justify-between items-center p-3 mx-auto max-w-[1400px ] md:px-20"
       >
         <LogoSimpsons estilus="w-[8rem] h-auto" />
-        <div class="flex gap-6 pt-3">
+        <div class="flex gap-6 pt-3 items-center">
           <RouterLink to="/simpsons/gallery" active-class="font-bold">
             Characters
           </RouterLink>
@@ -40,7 +40,7 @@ import { RouterLink } from "vue-router";
         <strong>All Rights Reserved</strong> - Oh Lord Matt Groening - 1989-2023
       </div>
 
-      <small class="mb-5"> This app was done by Eva Clement </small>
+      <small class="mb-10"> This app was done by Eva Clement </small>
     </footer>
   </div>
 </template>

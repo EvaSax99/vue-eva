@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import Carrusimaginum from "@/components/ui/Carrusimaginum.vue";
-import scrollToSection from "@/utils/scrollToSection";
 import { useMouseMotio } from "@/composables/useMouseMotio";
 import NavigatorPrimarius from "@/components/NavigatorPrimarius.vue";
 import Label from "@/components/ui/label/Label.vue";
@@ -47,29 +46,6 @@ const photos = [
 
 const { mousePositione, cumMouseLeave, cumMouseMove } = useMouseMotio();
 
-const menuItems = [
-  {
-    label: "Portada",
-    href: "#",
-    onclick: () => scrollToSection("#"),
-  },
-  {
-    label: "Vehíchulos",
-    href: "vehiculis",
-    onclick: () => scrollToSection("#"),
-  },
-  {
-    label: "Imágenes",
-    href: "videre",
-    onclick: () => scrollToSection("#"),
-  },
-  {
-    label: "Contacto",
-    href: "contactus",
-    onclick: () => scrollToSection("#"),
-  },
-];
-
 const dies = ref<DateValue>()
 
 const nomen = ref<string>('')  
@@ -108,7 +84,7 @@ const mittereSubmit = async () => {
 
 <template>
   <div class="batman">
-    <NavigatorPrimarius :items="menuItems" homeRoute="/" />
+     <NavigatorPrimarius homeRoute ="/"/>
 
     <header class="titulus">
       <h1>Batman</h1>

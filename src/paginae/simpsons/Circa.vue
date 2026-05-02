@@ -5,7 +5,7 @@ const imagoCirca = ref<string>('lisa.png')
 </script>
 
 <template>
-    <div class="flex flex-col lg: flex-row lg: justify-between max-w-[1400px] md: items-center w-full md: mx-auto my-8 gap-8 px-5 md:px-20">
+    <div class="flex flex-col lg:flex-row lg:justify-between max-w-[1400px] md: items-center w-full md: mx-auto my-8 gap-8 px-5 md:px-20">
     <figure class="flex justify-center min-w-min order-2 lg:order-1 h-[400px] lg:h-[500px]">
         <img 
         :src="`/imagines/simpsons/${ imagoCirca }`" 
