@@ -22,10 +22,10 @@ const quaestio = ref<string>('')
 
 <template>
   <div
-    class="bg-[rgb(21,25,52)] h-screen text-white font-sans text-center flex flex-col items-center justify-center gap-12 w-screen fixed"
+    class="bg-[rgb(17,23,57)] h-screen text-white font-sans text-center flex flex-col items-center justify-center gap-12 w-screen fixed"
   >
     <img
-      class="absolute opacity-20"
+      class="absolute opacity-20"git
       src="/imagines/batman/tonitrui.png"
       alt="Batman"
     />
