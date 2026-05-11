@@ -6,13 +6,14 @@ import { RouterLink } from "vue-router";
 
 <template>
   <div class="grid grid-rows-[auto_1fr_auto] min-h-screen">
-    <header class="bg-[#d29ae4ee] w-full border border-[#8b349c]">
+    <header class="bg-[#d29ae4ee] w-full ]">
       <div
         class="flex flex-col md:flex-row justify-between items-center p-3 mx-auto max-w-[1400px ] md:px-20"
       >
       <div class="logo-container">
-        <img src="/imagines/she-ra/SheRa-logo.png" alt="Logo" class="w-[8rem] h-auto" />
-
+        <RouterLink to="/she-ra" active-class="hover:w-30">
+          <img src="/imagines/she-ra/SheRa-logo.png" alt="Logo" class="w-[8rem] h-auto" />
+        </RouterLink>
       </div>
         
         <div class="flex gap-6 pt-3 items-center">
@@ -23,9 +24,9 @@ import { RouterLink } from "vue-router";
             About
           </RouterLink>
           <Button
-            variant="tertiarius"
-            side="elongatis"
-            class="bg-[#8b349c] text-white  border-radius:50  hover:bg-white focus:bg-white border-white hover:text-[#8b349c] "
+            variant="simpsonsfont"
+            size="elongatis"
+            class="bg-[#8b349c] text-white  border-radius:50 border-[#d29ae4ee] hover:bg-white focus:bg-white hover:text-[#8b349c] "
           >
             <RouterLink to="/she-ra"> Exit </RouterLink>
           </Button>
@@ -34,11 +35,11 @@ import { RouterLink } from "vue-router";
 
      
     </header>
-    <main class="mb-20">
+    <main class="mb-20 mt-10">
       <RouterView />
     </main>
 
-    <footer class="bg-[#d29ae4ee] text-center items-center justify-center border border-[#8b349c] pb-5">
+    <footer class="bg-[#d29ae4ee] text-center items-center justify-center pb-5">
 
       <div class="mt-5 text-[#8b349c]">
         <strong>All Rights Reserved</strong>

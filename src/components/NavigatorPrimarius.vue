@@ -20,7 +20,7 @@ interface MenuItems {
 }
 
 interface Props {
-    items: MenuItems[]
+    items?: MenuItems[]
     homeRoute: string;
 
 }
@@ -66,7 +66,7 @@ const handleResize = () => {
       </router-link>
       <NavigationMenu>
         <NavigationMenuList class="flex flex-col sm:flex-row">
-          <NavigationMenuItem v-for="item in items" :key="item.label">
+          <NavigationMenuItem v-for="item in items ?? []" :key="item.label">
             <a :href="item.href" @click.prevent="item.onclick ? item.onclick() : null">
               <NavigationMenuLink
                 :class="[

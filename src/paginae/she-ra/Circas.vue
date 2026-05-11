@@ -11,8 +11,8 @@ const imagoCirca = ref<string>('adora.png')
         :src="`/imagines/she-ra/${ imagoCirca }`" 
         alt="Adora"
         class="object-contain"
-		@mouseenter="imagoCirca = 'bow.png'"
-		@mouseleave="imagoCirca = 'adora.png'"
+		@mouseenter="imagoCirca = 'poster.png'"
+		@mouseleave="imagoCirca = 'poster2.png'"
 		>
     </figure> 
     <div class="flex flex-col gap-4 order-1 text-center lg:text-left">
@@ -35,12 +35,7 @@ const imagoCirca = ref<string>('adora.png')
 			Furthermore, She-Ra has often tackled social and political issues through satire and parody, making its quotes more than just funny one-liners. Being familiar with the show's commentary on current events and societal trends can also make you more aware and engaged with the world around you.
 		</p>
 
-		<!-- <p class="mb-5">
-			API and images:
-			<a className="hover:underline focus:underline" href="https://thesimpsonsquoteapi.glitch.me/quotes">
-        		https://thesimpsonsquoteapi.glitch.me/quotes
-			</a>
-		</p> -->
+
 	</div>
 </div>   
     

@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import Carrusimaginum from "@/components/ui/Carrusimaginum.vue";
 import { useMouseMotio } from "@/composables/useMouseMotio";
+import { useRouter } from "vue-router";
 import NavigatorPrimarius from "@/components/NavigatorPrimarius.vue";
 import Label from "@/components/ui/label/Label.vue";
 import { Input } from "@/components/ui/input";
@@ -45,8 +46,17 @@ const photos = [
 ];
 
 const { mousePositione, cumMouseLeave, cumMouseMove } = useMouseMotio();
+const router = useRouter();
 
 const dies = ref<DateValue>()
+
+const menuItems = [
+  {
+    label: 'Inicio',
+    href: '/',
+    onclick: () => router.push('/'),
+  },
+]
 
 const nomen = ref<string>('')  
 const cognomen = ref<string>('') 
@@ -84,7 +94,7 @@ const mittereSubmit = async () => {
 
 <template>
   <div class="batman">
-     <NavigatorPrimarius homeRoute ="/"/>
+     <NavigatorPrimarius :items="menuItems" homeRoute="/" />
 
     <header class="titulus">
       <h1>Batman</h1>

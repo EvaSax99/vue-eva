@@ -60,10 +60,10 @@ const selectedLabel = computed (() => {
 <template>
   <div
   v-if="character"
-  class="w-full md: mx-auto my-8 px-5 md:px-20"
+  class="w-full md: mx-auto my-10 mb-10 px-5 md:px-20"
   >
     <div class="mb-8">
-      <label class="block text-lg font-semibold mb-2 text-gray-800">Buscar personaje:</label>
+      <label class="block text-lg font-semibold mb-2 text-[#3a0c43]">Buscar personaje:</label>
   <Popover v-model:open="open">
     <PopoverTrigger as-child>
       <Button
@@ -78,7 +78,7 @@ const selectedLabel = computed (() => {
     </PopoverTrigger>
     <PopoverContent class="w-[200px] p-0 border-2 border-[#8b349c] bg-white">
       <Command>
-        <CommandInput class="border-b-2 border-gray-200" placeholder="Buscar..." />
+        <CommandInput class="border-b-2 border-[#e7b9f0]" placeholder="Buscar..." />
         <CommandList>
           <CommandEmpty>No se encontró</CommandEmpty>
           <CommandGroup>

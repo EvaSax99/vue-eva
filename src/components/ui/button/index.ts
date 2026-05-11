@@ -21,7 +21,7 @@ export const buttonVariants = cva(
         link: "text-primary underline-offset-4 hover:underline",
         tertiarius:
           "bg-white text-base border-black hover:bg-[#ee3123] focus:bg-[#ee3123] rounded-none",
-         simpsonsfont: "bg-white text-base  border border-black hover:bg-[#ee3123] focus:bg-[#ee3123] rounded-none",
+         simpsonsfont: "bg-white text-base  border border-black rounded-50",
       },
       size: {
         "default": "h-9 px-4 py-2 has-[>svg]:px-3",

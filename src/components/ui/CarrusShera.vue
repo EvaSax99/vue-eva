@@ -18,7 +18,7 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  autoPlayDelay: 2000,
+  autoPlayDelay: 4000,
   loop: true,
   dragFree: true,
 });
@@ -31,8 +31,9 @@ const props = withDefaults(defineProps<Props>(), {
 
 
 <template>
+  
 
-    <Carousel class="w-full max-w-md md:max-w-2xl lg:max-h-4xl bg-gray-900"
+    <Carousel class=" w-200 h-100 max-md:xl max-lg:2xl object-cover items-center "
       :opts="{
         loop: props.loop,
         dragFree: props.dragFree,
@@ -43,22 +44,22 @@ const props = withDefaults(defineProps<Props>(), {
       >
         <CarouselContent>
           <CarouselItem v-for="(photo, index) in props.photos" :key="index">
-            <div class="p-1">
-              <Card class=" bg-gray-900 border-none">
+            <div class="p-1 h-[320px] md:h-[420px]">
+              <Card class="border-none h-full max-w-[600px] mx-auto">
                 <CardContent
-                  class="flex aspect-6/4 items-center justify-center p-6"
+                  class="flex h-full items-center justify-center p-6"
                 >
                   <img 
-                  :src="`${props.basePath}/${photo}.jpg`"
-                  :alt="`imagen ${index} de Batman`"
-                  class="w-full h-full object-cover"
+                  :src="`${props.basePath}/${photo}.png`"
+                  :alt="`imagen ${index} de She-Ra`"
+                  class="w-full h-full object-contain object-top"
                   >
                 </CardContent>
               </Card>
             </div>
           </CarouselItem>
         </CarouselContent>
-        <CarouselPrevious class="hidden md:flex justify-center item-center  bg-gray-900 text-white" />
-        <CarouselNext class="hidden md:flex justify-center item-center  bg-gray-900 text-white" />
+        <CarouselPrevious class="hidden md:flex justify-center item-center  bg-[#8b349c] text-white " />
+        <CarouselNext class="hidden md:flex justify-center item-center  bg-[#8b349c] text-white" />
       </Carousel>
 </template>
