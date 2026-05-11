@@ -40,7 +40,7 @@ const quaestio = ref<string>('')
     <p class="text-lg md:text-2xl transition-all">
       Aprendiendo a crear aplicaciones web
     </p>
-    <div class="z-10">
+    <div class="z-10 gap-4 flex flex-row">
       <Dialog
       :open="dialogApertaEst"
       @update:open="dialogApertaEst = $event"
@@ -73,7 +73,7 @@ const quaestio = ref<string>('')
 
       <Button
         variant="default"
-        class="mr-2 bg-[rgb(24,188,246)] md-py-5 md:px-6 md:text-lg hover:bg-[rgb(30,111,141)] hover:text-white transition-all]"
+        class="mr-2 bg-[rgb(24,188,246)] md-py-5 md:px-6 md:text-lg hover:bg-[rgb(30,111,141)] hover:text-white transition-all] "
       >
         <router-link to="/batman">Batman</router-link>
       </Button>

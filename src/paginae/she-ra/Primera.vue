@@ -27,6 +27,8 @@ const photos = [
   "perfuma",
   "hordak",
   "light-hope",
+  "rogelio",
+  
 
 ];
 </script>
