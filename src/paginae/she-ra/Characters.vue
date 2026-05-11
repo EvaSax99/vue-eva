@@ -29,7 +29,7 @@ const character = ref<Character | undefined>(
     Characters.find( char => char.id === Number(route.params.id))
 )
 
-const simpsons = Characters.map( char => ({
+const sheRaOptions = Characters.map( char => ({
   value: char.id.toString(),
   label: char.nomen
 
@@ -46,12 +46,12 @@ watch(() => route.params.id, (newId) => {
 const selectCharacter = (characterId: string) => {
   value.value = characterId 
   open.value = false
-  router.push(`/simpsons/gallery/${characterId}`)
+  router.push(`/she-ra/gallery/${characterId}`)
 }
 
 const selectedLabel = computed (() => {
   if (!value.value) return 'Selecciona un personaje...'
-  return simpsons.find(simpson => simpson.value === value.value)?.label || 'Selecciona un personaje...'
+  return sheRaOptions.find(option => option.value === value.value)?.label || 'Selecciona un personaje...'
   })
 
 
@@ -70,30 +70,30 @@ const selectedLabel = computed (() => {
         variant="outline"
         role="combobox"
         :aria-expanded="open"
-        class="w-[200px] justify-between bg-[rgb(239,68,68)] hover:bg-[#ffde00] border-2 border-black font-semibold text-white"
+        class="w-[200px] justify-between bg-[#8b349c] hover:bg-[#d29ae4ee] border-2 border-[#8b349c] font-semibold text-white"
       >
         {{ selectedLabel }}
         <ChevronsUpDownIcon class="ml-2 h-4 w-4 shrink-0 opacity-50" />
       </Button>
     </PopoverTrigger>
-    <PopoverContent class="w-[200px] p-0 border-2 border-black bg-white">
+    <PopoverContent class="w-[200px] p-0 border-2 border-[#8b349c] bg-white">
       <Command>
         <CommandInput class="border-b-2 border-gray-200" placeholder="Buscar..." />
         <CommandList>
           <CommandEmpty>No se encontró</CommandEmpty>
           <CommandGroup>
             <CommandItem
-              v-for="simpson in simpsons"
-              :key="simpson.value"
-              :value="simpson.value"
-              @select="selectCharacter(simpson.value)"
-              class="hover:bg-black hover:text-white cursor-pointer font-medium transition-colors"
+              v-for="option in sheRaOptions"
+              :key="option.value"
+              :value="option.value"
+              @select="selectCharacter(option.value)"
+              class="hover:bg-[#d29ae4ee] hover:text-white cursor-pointer font-medium transition-colors"
             >
-              {{ simpson.label }}
+              {{ option.label }}
               <CheckIcon
                 :class="cn(
                   'ml-auto',
-                  value === simpson.value ? 'opacity-100' : 'opacity-0',
+                   value === option.value ? 'opacity-100' : 'opacity-0',
                 )"
               />
             </CommandItem>
@@ -121,7 +121,7 @@ const selectedLabel = computed (() => {
         {{ character.descriptione }}
       </p>
 
-      <div class="arca-quote" @click="router.push('/simpsons/gallery')">
+      <div class="arca-quote" @click="router.push('/she-ra/gallery')">
         <p class="quote">
           {{ character.quote }}
         </p>
@@ -131,8 +131,8 @@ const selectedLabel = computed (() => {
   </div>
     
   <figure class="figure-quote">
-    <img
-     :src="`/imagines/simpsons/${character.imago}`" alt="" />
+    <img class="w-[400px] h-[400px] justify-center object-contain"
+     :src="`/imagines/she-ra/${character.imago}`" alt="" />
   </figure>
   </div>
 
@@ -156,11 +156,11 @@ const selectedLabel = computed (() => {
 }
 
 .arca-quote {
-  background-color: rgb(239 68 68);
+  background-color: #d29ae4ee;
   padding: 1.25rem;
   border-radius: 0.5rem;
   cursor: pointer;
-  border: 1px solid black;
+  border: 1px solid #8b349c;
   display: flex;
   justify-content: center;
   align-items: center;

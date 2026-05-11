@@ -151,7 +151,43 @@ export const Characters: Character[] = [
     imago: "castaspella.png",
     quote: "You've come at the perfect time! There's an eclipse this evening; I'm headed right now to inspect the lunarium for the ceremony, and nothing would make me happier than to give my favorite niece and her friends a tour.",
     descriptione: "Castaspella is the current head sorceress of the Kingdom Mystacor. She is Queen Glimmer's aunt, Queen Angella's sister-in-law, and King Micah's younger[1] sister. She is a member of The Rebellion.."
-  }
+  },
+  { 
+    id: 19,
+    nomen: "Double Trouble",
+    imago: "double-trouble.png",
+    quote: "Your face right now is almost better than applause. Almost.",
+    descriptione: "Double Trouble is a shapeshifter mercenary and temporarily a spy for the Horde. They infiltrated the Rebellion under the guise and persona of Flutterina. After being discovered, they decided to ally with Queen Glimmer knowing that they would take advantage over the Horde with the Heart of Etheria."
+  },
+  {
+    id: 20,
+    nomen: "Razz",
+    imago: "razz.png",
+    quote: "Razzle Dazzle!",
+    descriptione: "Madame Razz is a supporting character in She-Ra and the Princesses of Power. She is a mysterious crone hermit residing in the Whispering Woods. Often seen confused about the order of her memories, she possesses an immense amount of knowledge about Mara, She-Ra, and the Sword of Protection, as well as experiencing events from both frames of time throughout her life. She treats Adora like a dear friend from the beginning, and she ends up accidentally guiding her to a number of places in the Whispering Woods crucial to the missions. Razz was close friends with Mara, as well as the first Etherian that Mara met."
+  },
+  { 
+    id: 21,
+    nomen: "Light Hope",
+    imago: "light-hope.png",
+    quote: "Thank you...",
+    descriptione: 'Light Hope was an artificial intelligence program created by the First Ones and a supporting character turned antagonist in She-Ra and the Princesses of Power. She is a recurring character in the first, second, and third seasons, and a major antagonist in Season Four.'
+  },
+  { 
+    id: 22,
+    nomen: "Swift Wind",
+    imago: "swift-wind.png",
+    quote: "I am my own horse. Call me… Swift Wind!",
+    descriptione: "Swift Wind, formerly called Horsey, is a horse mutated by magic after coming in contact with the Sword of Protection. After gaining wings, a horn, and the ability to talk (communicate fluently with humans), he becomes a close companion of Adora and loyal steed of She-Ra during their adventures."
+  },
+  {
+    id: 23,
+    nomen: "Horde Prime",
+    imago: "horde-prime.png",
+    quote: "All creatures, no matter how small, have a place in service of Horde Prime.",
+    descriptione: "Horde Prime, also known as Prime, is the main antagonist of She-Ra and the Princesses of Power. He serves as the overarching antagonist of the first, second, third, and fourth seasons and the main antagonist of the fifth and final season. He was the progenitor, creator and absolute ruler of the Horde, as well as Hordak's genetic template, and emperor of the known universe. In the series finale, he is destroyed by She-Ra after she frees the magic stored by the Heart of Etheria."
+  },
+
 
   
   

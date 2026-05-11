@@ -24,13 +24,13 @@ src="/imagines/she-ra/SheRa-logo.png"
 		size="elongatis"
 		class=" text-[#8b349c] border-[#8b349c] hover:bg-[#d29ae4ee] hover:text-white hover:border-[#8b349c]"
 		>
-      		<RouterLink to="/">Exit</RouterLink>
+      		<RouterLink to="/she-ra">Exit</RouterLink>
     	</Button>
     	<Button variant="simpsonsfont"
 		 size="elongatis"
 		 class="text-[#8b349c] border-[#8b349c] hover:bg-[#d29ae4ee] hover:text-white hover:border-[#8b349c]"
 		 >
-      		<RouterLink to="/simpsons/about">Enter</RouterLink>
+      		<RouterLink to="/she-ra/about">Enter</RouterLink>
     	</Button>
 	</div>
 	<div class="flex gap-12 mt-8">
