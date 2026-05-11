@@ -7,6 +7,11 @@ import Layout from "../paginae/simpsons/Layout.vue";
 import Circa from "@/paginae/simpsons/Circa.vue";
 import Collectione from "@/paginae/simpsons/Collectione.vue";
 import Character from "@/paginae/simpsons/Character.vue";
+import Primera from "@/paginae/she-ra/Primera.vue";
+import Capa from "@/paginae/she-ra/Capa.vue";
+import Circas from "@/paginae/she-ra/Circas.vue";
+import Collection from "@/paginae/she-ra/Collection.vue";
+import Characters from "@/paginae/she-ra/Characters.vue";
 
 
 export const router = createRouter({
@@ -56,6 +61,46 @@ export const router = createRouter({
                             path: ':id',
                             name: 'simpsons-detail',
                             component: Character,
+                        }
+                    ]
+                }
+            ]
+            
+        },
+
+        {
+            path: '/she-ra', 
+            children: [
+                {
+                    path: '',
+                    name: 'she-ra',
+                    component: Primera,
+                },
+                {
+                    path: 'about',
+                    component: Capa,
+                    children: [
+                        {
+                            path: '',
+                            name: 'she-ra-about',
+                            component: Circas,
+                        }
+                        
+                    ]
+                },
+                {
+                    path: 'gallery',
+                    component: Capa,
+                    children: [
+                        {
+                            path: '',
+                            name: 'she-ra-characters',
+                            component: Collection,
+                        },
+                        {
+                            path: ':id',
+                            name: 'she-ra-detail',
+                            component: Characters,
                         }
                     ]
                 }

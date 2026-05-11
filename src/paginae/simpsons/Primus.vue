@@ -24,9 +24,9 @@ import LogoSimpsons from '@/components/LogoSimpsons.vue';
     	</Button>
 	</div>
 	<div class="flex gap-12 mt-8">
-		<img class="object-contain hidden md:block" src="/imagines/simpsons/bart.png" alt="Bart Simpson" width="200px">
-		<img class="object-contain hidden md:block mt-20" src="/imagines/simpsons/homer.png" alt="Homer Simpson" width="200px">
-		<img class="object-contain hidden md:block mt-0" src="/imagines/simpsons/moe.png" alt="Moe Szyslak" width="200px">
+		<img class="object-contain hidden md:block" src="/imagines/she-ra/adora.png" alt="Adora" width="200px">
+		<img class="object-contain hidden md:block mt-20" src="/imagines/she-ra/glimmer.png" alt="Glimmer" width="200px">
+		<img class="object-contain hidden md:block mt-0" src="/imagines/she-ra/catra.png" alt="Catra" width="200px">
 
 
 </div>

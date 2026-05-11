@@ -87,6 +87,12 @@ const quaestio = ref<string>('')
         variant="default"
         class="mr-2 bg-[rgb(24,188,246)] md-py-5 md:px-6 md:text-lg hover:bg-[rgb(30,111,141)] hover:text-white transition-all]"
       >
+        <router-link to="/she-ra">She-Ra</router-link>
+      </Button>
+      <Button
+        variant="default"
+        class="mr-2 bg-[rgb(24,188,246)] md-py-5 md:px-6 md:text-lg hover:bg-[rgb(30,111,141)] hover:text-white transition-all]"
+      >
         <a href="https://www.upv.es">UPV</a>
       </Button>
     </div>
