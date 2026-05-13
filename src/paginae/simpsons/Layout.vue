@@ -34,7 +34,7 @@ import { RouterLink } from "vue-router";
       <RouterView />
     </main>
 
-    <footer class="bg-[#ffde00] text-center items-center justify-center border border-black ">
+    <footer class="bg-[#ffde00] text-center items-center justify-center border border-black pb-5">
 
       <div class="mt-5">
         <strong>All Rights Reserved</strong> - Oh Lord Matt Groening - 1989-2023

@@ -131,6 +131,9 @@ const handleResize = () => {
   color: white;
   background-color: slateblue;
 }
+.icon-home {
+  margin:10px;
+}
 
 .extra-nav {
   background-color: white;
@@ -141,6 +144,7 @@ const handleResize = () => {
   width: 11rem;
   border-radius: 0 0 1rem 0;
   z-index: 1;
+  display: flex;
 }
 
 @media (min-width: 640px) {
@@ -149,6 +153,7 @@ const handleResize = () => {
     border-radius: 0;
     opacity: 1;
     left: 0;
+    
   }
 }
 
