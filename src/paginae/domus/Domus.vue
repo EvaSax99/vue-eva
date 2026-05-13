@@ -11,13 +11,32 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
+import { useRouter } from "vue-router";
 import { ref } from "vue";
 
 const dialogApertaEst = ref<boolean>(false)
 const quaestio = ref<string>('')
-// watch(quaestio, (valorNuevo) => {
-//   console.log('Pregunta guardada:', valorNuevo)
-// })
+
+const router = useRouter()
+
+const cumKeyPressumEnter = (eventus: KeyboardEvent) => {
+  if (eventus.key === 'Enter') {
+    const textusItinerans = quaestio.value.trim()
+    if (textusItinerans.length > 0 && textusItinerans.endsWith('?')){
+      dialogApertaEst.value = false
+
+      router.push({
+        path: '/indecision',
+        state: { quaestio: textusItinerans}
+      })
+
+      quaestio.value = ''
+
+    }
+  }
+
+}
+
 </script>
 
 <template>
@@ -65,6 +84,7 @@ const quaestio = ref<string>('')
              placeholder="Escribe tu pregunta aquí..." 
              class="bg-[rgb(31,35,62)] text-white placeholder:text-gray-400 border-[rgb(24,182,246)]"
              v-model="quaestio"
+             @keydown="cumKeyPressumEnter"
              />
           </div>
 

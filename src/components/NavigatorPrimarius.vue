@@ -20,12 +20,13 @@ interface MenuItems {
 }
 
 interface Props {
-    items: MenuItems[]
+    items?: MenuItems[]
     homeRoute: string;
 
 }
 
 withDefaults(defineProps<Props>(), {
+  items: () => [] as MenuItems[],
   homeRoute: '/'
 })
 
