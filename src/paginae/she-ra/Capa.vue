@@ -2,6 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import { RouterLink } from "vue-router";
+
 </script>
 
 <template>
@@ -24,7 +25,7 @@ import { RouterLink } from "vue-router";
             About
           </RouterLink>
           <Button
-            variant="simpsonsfont"
+            variant="sherafont"
             size="elongatis"
             class="bg-[#8b349c] text-white  border-radius:50 border-[#d29ae4ee] hover:bg-white focus:bg-white hover:text-[#8b349c] "
           >
@@ -39,7 +40,7 @@ import { RouterLink } from "vue-router";
       <RouterView />
     </main>
 
-    <footer class="bg-[#d29ae4ee] text-center items-center justify-center pb-5">
+    <footer class="bg-[#d29ae4ee] text-center justify-center items-center pb-5">
 
       <div class="mt-5 text-[#8b349c]">
         <strong>All Rights Reserved</strong>

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 
-const imagoCirca = ref<string>('adora.png')
+const imagoCirca = ref<string>('poster.png')
 </script>
 
 <template>
@@ -9,7 +9,7 @@ const imagoCirca = ref<string>('adora.png')
     <figure class="flex justify-center min-w-min order-2 lg:order-1 h-[400px] lg:h-[500px]">
         <img 
         :src="`/imagines/she-ra/${ imagoCirca }`" 
-        alt="Adora"
+        alt="She-ra"
         class="object-contain"
 		@mouseenter="imagoCirca = 'poster.png'"
 		@mouseleave="imagoCirca = 'poster2.png'"

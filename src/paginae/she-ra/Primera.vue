@@ -36,14 +36,14 @@ const photos = [
 <template>
 	<div class="flex flex-row  justify-end sm:justify-end gap-5 sm:gap-5 mr-10 mt-8">
       <Button
-        variant="simpsonsfont"
+        variant="sherafont"
         size="elongatis"
         class="text-[#8b349c] border-[#8b349c] hover:bg-[#d29ae4ee] hover:text-white hover:border-[#8b349c]"
       >
         <RouterLink to="/">Exit</RouterLink>
       </Button>
       <Button
-        variant="simpsonsfont"
+        variant="sherafont"
         size="elongatis"
         class="text-[#8b349c] border-[#8b349c] hover:bg-[#d29ae4ee] hover:text-white hover:border-[#8b349c]"
       >

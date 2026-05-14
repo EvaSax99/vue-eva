@@ -99,6 +99,8 @@ const paginaNumeri: number[] =[...Array(totalPaginae)].map((_, i) => i + 1)
       </button>
     </div>
   </div>
+
+  
 </template>
 
 <style scoped></style>
